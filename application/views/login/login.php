@@ -28,7 +28,7 @@
                 <div id="login">   
                     <h1>Welcome Back!</h1>
 
-                    <form action="/" method="post">
+                    <form action="<?= site_url("user")?>" method="post">
 
                         <div class="field-wrap">
                             <label>
