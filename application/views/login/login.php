@@ -57,20 +57,11 @@
 
                     <form action="/" method="post">
 
-                        <div class="top-row">
-                            <div class="field-wrap">
-                                <label>
-                                    First Name<span class="req">*</span>
-                                </label>
-                                <input type="text" required autocomplete="off" />
-                            </div>
-
-                            <div class="field-wrap">
-                                <label>
-                                    Last Name<span class="req">*</span>
-                                </label>
-                                <input type="text"required autocomplete="off"/>
-                            </div>
+                        <div class="field-wrap">
+                            <label>
+                                Name<span class="req">*</span>
+                            </label>
+                            <input type="email"required autocomplete="off"/>
                         </div>
 
                         <div class="field-wrap">
@@ -78,6 +69,12 @@
                                 Email Address<span class="req">*</span>
                             </label>
                             <input type="email"required autocomplete="off"/>
+                        </div>
+                        <div class="field-wrap">
+                            <label>
+                                Phone<span class="req">*</span>
+                            </label>
+                            <input type="text"required autocomplete="off"/>
                         </div>
 
                         <div class="field-wrap">
