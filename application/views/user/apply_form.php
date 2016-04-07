@@ -33,7 +33,11 @@ include 'menu.php';
 
                         </div>
                         <div class="panel-body">
-                            <form action="<?php echo current_url(); ?>" method="POST" class="form-horizontal">
+                            <!--<form action="<?php echo current_url(); ?>" method="POST" class="form-horizontal">-->
+                                <?= form_open_multipart( current_url(),array(
+                                    'method' => 'POST' ,
+                                    'class' => 'form-horizontal'
+                                ))?>
                                 <div class="form-group">
                                     <label class="control-label col-sm-3">Applicants Name</label>
                                     <div class="col-sm-9">
@@ -65,9 +69,9 @@ include 'menu.php';
                                     <label class="control-label col-sm-3">Upazila</label>
                                     <div class="col-sm-9">
 
-                                       <select class="form-control" name="upazila_id">
-                                           <option value="2">Select Upazila</option>
-                                           <option value="1"></option>
+                                        <select class="form-control" name="upazila_id">
+                                            <option value="2">Select Upazila</option>
+                                            <option value="1"></option>
                                         </select>
                                     </div>
                                 </div>
@@ -100,12 +104,15 @@ include 'menu.php';
                                 <div class="form-group">
                                     <label class="control-label col-sm-3">Sex</label>
                                     <div class="col-sm-9">
-                                        <div class="col-sm-6">
-                                            <input type="checkbox"  name="sex"  class="checkbox"/><span>Male</span>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" value="1"  name="sex" class="checkbox"/> Male
+                                            </label>
                                         </div>
-
-                                        <div class="col-sm-6">
-                                            <input type="checkbox"  name="sex" class="checkbox"/><span>Female</span>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox"  value="2"  name="sex" class="checkbox"/> Female
+                                            </label>
                                         </div>
                                     </div>
                                 </div>
@@ -121,7 +128,7 @@ include 'menu.php';
                                     <label class="control-label col-sm-3">Photo</label>
                                     <div class="col-sm-9">
 
-                                        <input type="file"  name="photo" class="form-control"/>
+                                        <input type="file"  name="photo_url"/>
 
                                     </div>
                                 </div>
@@ -129,7 +136,7 @@ include 'menu.php';
                                     <label class="control-label col-sm-3">NID Document</label>
                                     <div class="col-sm-9">
 
-                                        <input type="file"  name="nid_url" class="form-control"/>
+                                        <input type="file"  name="nid_url"/>
 
                                     </div>
                                 </div>
@@ -137,7 +144,7 @@ include 'menu.php';
                                     <label class="control-label col-sm-3">Fingure Print</label>
                                     <div class="col-sm-9">
 
-                                        <input type="file"  name="fingure_print_url" class="form-control"/>
+                                        <input type="file"  name="fingure_print_url"/>
 
                                     </div>
                                 </div>

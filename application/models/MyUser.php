@@ -14,10 +14,9 @@
 class MyUser extends CI_Model {
 
     function apply_for_passport() {
-//`id_user_info`, `user_id`, `name`, `address`, `district_id`, `union_id`, `upzila_id`, 
-//        `father_name`, `mother_name`, `gender`, `nid`, `pic_url`, `nid_url`, `fingure_print_url`,
-//        `is_paid`, `is_police_varified`,
-//        `is_address_varified`, `is_identified`, `identifier_id`, `is_other_varified`, `other_varification_id`
+        $img_urls = $this->do_upload();
+        
+        
 
         $data = array(
             "name" => $this->input->post("name"),
@@ -29,11 +28,51 @@ class MyUser extends CI_Model {
             "mother_name" => $this->input->post("mother_name"),
             "gender" => $this->input->post("sex"),
             "nid" => $this->input->post("nid"),
+            "pic_url" => $img_urls['pic_url'],
+            "nid_url" => $img_urls['nid_url'] ,
+            "fingure_print_url" => $img_urls['fingure_print_url'],
             "gender" => $this->input->post("sex")
         );
-        $result = $this->db->insert("ps_user_info",$data);
         
+        $result = $this->db->insert("ps_user_info", $data);
+    }
+
+    function do_upload() {
+
+
+        $config['upload_path'] =  './uploads/';
+        $config['allowed_types'] = 'gif|jpg|png';
+//        $config['max_size'] = '2000';
+//        $config['max_width'] = '1024';
+//        $config['max_height'] = '768';
+
+        $this->load->library('upload', $config);
+
+        if (!$this->upload->do_upload('photo_url')) {
+            print_r($this->upload->display_errors());
+            exit();
+        } else {
+            $temp =$this->upload->data();
+            $data['pic_url'] = $temp['file_name'];
+            
+        }
         
+        if (!$this->upload->do_upload('nid_url')) {
+            print_r($this->upload->display_errors());
+            exit();
+        } else {
+            $temp =$this->upload->data();
+            $data['nid_url'] =  $temp['file_name'];
+        }
+        
+        if (!$this->upload->do_upload('fingure_print_url')) {
+            print_r($this->upload->display_errors());
+            exit();
+        } else {
+            $temp =$this->upload->data();
+            $data['fingure_print_url'] =  $temp['file_name'];
+        }
+        return $data;
     }
 
 }

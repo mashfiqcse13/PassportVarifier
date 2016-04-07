@@ -15,7 +15,7 @@ class User extends CI_Controller {
 
     function __construct() {
         parent::__construct();
-        
+
         $this->load->database();
 //
         $this->load->helper(array('form', 'url'));
@@ -28,18 +28,18 @@ class User extends CI_Controller {
 //            redirect('auth');
 //        }
     }
-    
-    function index(){
+
+    function index() {
         $this->load->view("admin/dashboard");
     }
-    function apply_form(){
-        if(isset($_POST["btnSave"])){
+
+    function apply_form() {
+        if (isset($_POST["btnSave"])) {
             $this->load->model("MyUser");
-            
+
             $this->MyUser->apply_for_passport();
         }
         $this->load->view("user/apply_form");
     }
-    
 
 }
